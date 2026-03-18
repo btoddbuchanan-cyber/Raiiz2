@@ -8,7 +8,8 @@ const footerLinks = {
     { href: "/news", label: "News" },
   ],
   Investors: [
-    { href: "/investors", label: "Investment Opportunities" },
+    { href: "/investors", label: "Investor Hub" },
+    { href: "/invest", label: "Invest Now" },
     { href: "/investors#tax-credit", label: "BC Tax Credit" },
     { href: "/contact", label: "Investor Relations" },
   ],
