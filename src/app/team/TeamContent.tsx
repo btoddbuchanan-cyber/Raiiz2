@@ -95,12 +95,12 @@ export function TeamContent() {
                 transition={{ duration: 0.45, delay: i * 0.08 }}
                 className="group relative rounded-2xl border border-border-subtle bg-bg-secondary/60 overflow-hidden hover:border-border-accent transition-colors duration-300"
               >
-                <div className="aspect-[3/4] relative bg-bg-tertiary overflow-hidden">
+                <div className="aspect-square relative bg-bg-tertiary overflow-hidden">
                   <Image
                     src={member.image}
                     alt={`${member.name} — ${member.title}`}
                     fill
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg-primary/80 via-transparent to-transparent" />
