@@ -35,7 +35,7 @@ const timeline = [
   { year: "2018", event: "Technology development begins — bootstrapped engineering of the RAIIZ platform" },
   { year: "2024", event: "Raiiz Innovations acquires Ecohome.net IP portfolio, unifying content and technology" },
   { year: "2025", event: "EBC certification secured — BC investors eligible for 30% provincial tax credit" },
-  { year: "2026", event: "Commercial velocity phase — scaling from MVP to market deployment" },
+  { year: "2026", event: "Scaling nationwide — expanding from early users to broad market availability" },
 ];
 
 export function AboutContent() {
@@ -91,9 +91,7 @@ export function AboutContent() {
                   seamless and impactful.
                 </p>
                 <p>
-                  The construction industry is overdue for transformation. RAIIZ
-                  provides the digital infrastructure to align the entire
-                  ecosystem into high-velocity, AI-optimized workflows.
+                  The construction industry is overdue for a better way to connect homeowners with quality professionals. RAIIZ provides the technology to make that happen — faster, simpler, and more transparently.
                 </p>
               </div>
             </motion.div>
@@ -108,7 +106,7 @@ export function AboutContent() {
               <div className="rounded-2xl border border-border-subtle overflow-hidden">
                 <Image
                   src="/images/heroes/data-moat.jpg"
-                  alt="RAIIZ proprietary data moat — the foundation of our AI platform"
+                  alt="RAIIZ — connecting homeowners with trusted construction professionals"
                   width={800}
                   height={600}
                   className="w-full h-auto"

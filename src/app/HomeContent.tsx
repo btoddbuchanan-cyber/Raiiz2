@@ -10,54 +10,54 @@ import { AnimatedCard } from "@/components/AnimatedCard";
 const pillars = [
   {
     letter: "R",
-    title: "Rise — Elevating the Standard",
+    title: "Raising the Bar",
     description:
-      "Moving beyond legacy systems to high-performance digital infrastructure for the modern construction ecosystem.",
+      "Replacing outdated tools with a modern platform purpose-built for how the construction industry actually works.",
     icon: TrendingUp,
   },
   {
     letter: "AI",
-    title: "Agentic Intelligence",
+    title: "AI That Knows Construction",
     description:
-      "Sovereign, localized AI built on 13+ years of expert-vetted logic and proprietary construction science data.",
+      "Our AI is trained on 13+ years of real-world construction data — not generic models. It understands building codes, best practices, and local requirements.",
     icon: Cpu,
   },
   {
     letter: "IZ",
-    title: "Intelligent Zero-Trust",
+    title: "Verified & Trusted",
     description:
-      "Programmatic verification automating audit trails and compliance across a $16.5T industry.",
+      "Every professional on our platform is verified. Every recommendation is backed by data. Trust is built in, not bolted on.",
     icon: ShieldCheck,
   },
 ];
 
 const stats = [
-  { value: "$16.5T", label: "Industry Opportunity" },
-  { value: "200K+", label: "Opted-in Members" },
-  { value: "230K+", label: "Professional Records" },
-  { value: "170K+", label: "Indexed Knowledge Pages" },
-  { value: "13+", label: "Years of Trilingual IP" },
-  { value: "6", label: "Years of Engineering" },
+  { value: "$16.5T", label: "Global Construction Market" },
+  { value: "200K+", label: "Registered Members" },
+  { value: "230K+", label: "Construction Professionals" },
+  { value: "170K+", label: "Expert Articles & Guides" },
+  { value: "13+", label: "Years of Industry Data" },
+  { value: "6", label: "Years Building the Platform" },
 ];
 
 const capabilities = [
   {
     icon: Database,
-    title: "Sovereign Data Intelligence",
+    title: "Industry-Leading Knowledge Base",
     description:
-      "Proprietary consumer data silos, professional databases, and a construction-science knowledge base fuel precise AI optimization.",
+      "Our proprietary database of member preferences, professional credentials, and construction science guides powers every recommendation on the platform.",
   },
   {
     icon: Zap,
-    title: "High-Velocity Workflows",
+    title: "Faster, Simpler Processes",
     description:
-      "Automated, merit-based ecosystem replacing high-friction legacy models with agentic AI-optimized workflows.",
+      "We cut through the noise. Our platform connects you with the right professionals and incentives without the endless searching and phone calls.",
   },
   {
     icon: Building2,
-    title: "Total Market Alignment",
+    title: "Everyone Connected",
     description:
-      "Connecting architects, engineers, government incentives, homeowners, and production-line logic on one unified platform.",
+      "Architects, engineers, builders, product suppliers, government incentive programs, and homeowners — all on one platform, working together.",
   },
 ];
 
@@ -145,7 +145,7 @@ export default function HomeContent() {
           >
             <Image
               src="/images/heroes/hero-trust.jpg"
-              alt="RAIIZ — R for Rise, AI for Agentic Intelligence, IZ for Intelligent Zero-Trust"
+              alt="RAIIZ — Raising the bar, AI-powered intelligence, Verified and trusted professionals"
               width={1200}
               height={600}
               className="w-full h-auto"
@@ -160,8 +160,8 @@ export default function HomeContent() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <SectionHeading
             eyebrow="What is RAIIZ"
-            title="One Platform. Total Market Alignment."
-            description="RAIIZ is the unifying software force for the construction transition toward high-efficiency, low-impact structures at affordable costs."
+            title="One Platform. Everything You Need."
+            description="RAIIZ brings together professionals, products, incentives, and building guidance in one place — making it easier and more affordable to build or renovate your home."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
@@ -232,25 +232,19 @@ export default function HomeContent() {
               </h2>
               <div className="space-y-4 text-text-secondary leading-relaxed">
                 <p>
-                  Fragmented legacy platforms monetize surface-level leads with
-                  high overhead and declining ROI. The industry has few
-                  alternatives.
+                  Today's construction platforms sell generic leads at premium prices. Homeowners struggle to find qualified professionals, and good builders get lost in the noise.
                 </p>
                 <p>
-                  RAIIZ replaces this high-friction model with a high-velocity,
-                  automated merit-based ecosystem — better results for everyone
-                  involved.
+                  RAIIZ changes that. We match homeowners with verified professionals based on quality and fit — not who pays the most for advertising.
                 </p>
               </div>
 
               <div className="mt-8 p-6 rounded-xl bg-bg-tertiary border border-border-subtle">
                 <p className="text-sm text-text-secondary leading-relaxed">
                   <span className="text-accent font-semibold">
-                    The Transformation Chain:
+                    How It Works:
                   </span>{" "}
-                  Incentives &rarr; Best Practice &rarr; Education &rarr; Higher Consumer
-                  Expectations &rarr; Better Builders &rarr; Better Homes &rarr; Lower Costs &rarr;
-                  Lower Energy Use &rarr; Better Comfort
+                  Better incentives lead to better building practices, which create better homes — more affordable, more efficient, and more comfortable for everyone.
                 </p>
               </div>
             </motion.div>
@@ -292,9 +286,9 @@ export default function HomeContent() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
           <SectionHeading
-            eyebrow="Sovereign Intelligence"
+            eyebrow="Our Data Advantage"
             title="Built on a Foundation of Data"
-            description="Proprietary knowledge fuels AI optimization — 13 years of trilingual IP, 200K+ opted-in members, and a construction-science knowledge base of 170K+ indexed pages."
+            description="Over 13 years of construction expertise, 200,000+ members, and 170,000+ expert guides — our AI recommendations are grounded in real industry knowledge."
           />
 
           <motion.div
@@ -306,7 +300,7 @@ export default function HomeContent() {
           >
             <Image
               src="/images/heroes/sovereign-intelligence.jpg"
-              alt="RAIIZ Sovereign Intelligence — proprietary data moat powering agentic AI"
+              alt="RAIIZ platform — built on 13 years of construction industry data"
               width={1200}
               height={675}
               className="w-full h-auto"
@@ -316,36 +310,28 @@ export default function HomeContent() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <AnimatedCard index={0} className="border-gradient">
               <h3 className="text-xl font-semibold mb-3 text-text-primary">
-                Institutional Memory
+                Deep Industry Expertise
               </h3>
               <p className="text-text-secondary leading-relaxed">
-                13 years of trilingual IP and authority via the Ecohome
-                portfolio — the deepest construction science knowledge base in
-                North America.
+                13 years of construction knowledge built through the Ecohome network — one of North America's most trusted resources for sustainable building.
               </p>
             </AnimatedCard>
 
             <AnimatedCard index={1} className="border-gradient">
               <h3 className="text-xl font-semibold mb-3 text-text-primary">
-                Technical Maturity
+                Production-Ready Technology
               </h3>
               <p className="text-text-secondary leading-relaxed">
-                6 years of bootstrapped engineering at MVP status, proving the
-                model is beyond technical validation and poised for commercial
-                velocity.
+                Six years of focused development have taken our platform from concept to a fully functional system, tested and refined with real users.
               </p>
             </AnimatedCard>
 
             <AnimatedCard index={2} className="md:col-span-2 border-gradient">
               <h3 className="text-xl font-semibold mb-3 text-text-primary">
-                Localized Logic
+                Personalized Recommendations
               </h3>
               <p className="text-text-secondary leading-relaxed">
-                AI trained on proprietary consumer data silos with over 200,000
-                opted-in members, combined with over 230,000 professional
-                records and a construction-science knowledge base of over
-                170,000 indexed pages — accelerating results across the 93%
-                general market.
+                With 200,000+ registered members, 230,000+ professional profiles, and 170,000+ expert guides, our AI delivers recommendations tailored to your location, project, and goals.
               </p>
             </AnimatedCard>
           </div>

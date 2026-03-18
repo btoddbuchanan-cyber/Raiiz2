@@ -20,13 +20,13 @@ import { AnimatedCard } from "@/components/AnimatedCard";
 const layers = [
   {
     icon: Brain,
-    title: "Agentic AI Engine",
+    title: "Construction-Specific AI",
     description:
-      "Sovereign, localized intelligence trained on 13 years of proprietary construction science data. Not generic — purpose-built for this industry.",
+      "Our AI understands construction — trained on 13 years of real building science data, not generic internet content. It gives you recommendations you can trust.",
   },
   {
     icon: Network,
-    title: "Ecosystem Connectivity",
+    title: "Industry Connections",
     description:
       "A unified digital layer connecting architects, engineers, builders, product suppliers, and government incentive programs.",
   },
@@ -44,13 +44,13 @@ const layers = [
   },
   {
     icon: Shield,
-    title: "Intelligent Zero-Trust",
+    title: "Built-In Verification",
     description:
-      "Programmatic verification and automated audit trails. Built-in compliance for an industry that demands trust.",
+      "Professional credentials and project quality are verified automatically. No fake reviews, no inflated ratings — just trustworthy information.",
   },
   {
     icon: Award,
-    title: "Merit-Based Marketplace",
+    title: "Quality Comes First",
     description:
       "Quality rises to the top. Our algorithms surface the best professionals, products, and practices — not the highest bidder.",
   },
@@ -105,13 +105,11 @@ export function PlatformContent() {
               The Platform
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Where AI Meets{" "}
-              <span className="gradient-text">Industry Intelligence</span>
+              The Smarter Way to{" "}
+              <span className="gradient-text">Build and Renovate</span>
             </h1>
             <p className="text-lg text-text-secondary leading-relaxed">
-              The RAIIZ platform is the digital infrastructure layer for the
-              modern construction ecosystem — connecting people, data, and
-              workflows through agentic AI.
+              RAIIZ brings together everything you need — vetted professionals, government incentives, expert guidance, and AI-powered recommendations — in one easy-to-use platform.
             </p>
           </motion.div>
         </div>
@@ -128,7 +126,7 @@ export function PlatformContent() {
           >
             <Image
               src="/images/heroes/platform-ai.jpg"
-              alt="RAIIZ platform — sovereign intelligence powering construction AI"
+              alt="RAIIZ platform — AI-powered tools for the construction industry"
               width={1200}
               height={675}
               className="w-full h-auto"
@@ -142,8 +140,8 @@ export function PlatformContent() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <SectionHeading
             eyebrow="Architecture"
-            title="Six Integrated Layers"
-            description="Each layer of the RAIIZ platform serves a distinct purpose — together they create the most comprehensive construction technology ecosystem available."
+            title="How the Platform Works"
+            description="Six core capabilities work together to give homeowners, professionals, and investors the tools they need."
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -239,14 +237,14 @@ export function PlatformContent() {
                 href="/investors"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-bg-primary font-semibold rounded-xl hover:bg-accent-hover transition-colors"
               >
-                Investment Opportunities
+                View Investment Details
                 <ArrowRight size={18} />
               </Link>
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-border-subtle text-text-primary font-medium rounded-xl hover:bg-white/5 transition-colors"
               >
-                Contact Us
+                Get in Touch
               </Link>
             </div>
           </motion.div>
