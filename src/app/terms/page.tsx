@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "Terms of Service for RAIIZ Innovations Inc. — governing your use of our websites, services, and products.",
+  description: "Terms of Service for RAIIZ Innovations Inc. Read our terms governing use of our websites, services, mobile apps, and hosted content.",
 };
 
 export default function TermsPage() {

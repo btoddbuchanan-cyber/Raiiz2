@@ -11,6 +11,7 @@ const navLinks = [
   { href: "/platform", label: "Platform" },
   { href: "/team", label: "Team" },
   { href: "/news", label: "News" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 

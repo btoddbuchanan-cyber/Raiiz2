@@ -4,7 +4,7 @@ import { getAllPosts } from "@/lib/blog";
 import { Calendar, Tag } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Sustainable Building & Construction Technology Blog",
   description:
     "Insights on sustainable building, green construction, AI in construction, and the future of the built environment from RAIIZ Innovations.",
 };

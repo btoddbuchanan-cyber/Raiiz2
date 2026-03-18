@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy Policy for RAIIZ Innovations Inc. — how we collect, use, and protect your information.",
+  description: "Privacy Policy for RAIIZ Innovations Inc. Learn how we collect, use, store, and protect your personal information across our platform.",
 };
 
 export default function PrivacyPage() {

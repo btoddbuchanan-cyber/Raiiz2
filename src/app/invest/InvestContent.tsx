@@ -82,8 +82,8 @@ export function InvestContent() {
               Invest Now
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Building the Future.{" "}
-              <span className="gradient-text">Together.</span>
+              Invest in the Future of{" "}
+              <span className="gradient-text">Construction Technology</span>
             </h1>
             <p className="text-lg text-text-secondary leading-relaxed mb-4">
               Join us in transforming the $16.5T construction industry. RAIIZ

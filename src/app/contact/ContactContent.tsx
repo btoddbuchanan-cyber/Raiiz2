@@ -1,9 +1,13 @@
 "use client";
 
+import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Building2 } from "lucide-react";
+import { MapPin, Phone, Mail, Building2, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
+import Link from "next/link";
 import { SectionHeading } from "@/components/SectionHeading";
 import { AnimatedCard } from "@/components/AnimatedCard";
+
+type FormStatus = "idle" | "submitting" | "success" | "error";
 
 const contactMethods = [
   {
@@ -35,6 +39,48 @@ const contactMethods = [
 ];
 
 export function ContactContent() {
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("submitting");
+    setErrorMessage("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      firstName: formData.get("firstName") as string,
+      lastName: formData.get("lastName") as string,
+      email: formData.get("email") as string,
+      interest: formData.get("interest") as string,
+      message: formData.get("message") as string,
+      formType: "contact",
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      setStatus("success");
+      form.reset();
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage(
+        err instanceof Error ? err.message : "Something went wrong. Please try again."
+      );
+    }
+  }
+
   return (
     <>
       {/* Hero */}
@@ -104,110 +150,168 @@ export function ContactContent() {
             description="Fill out the form below and a member of our team will get back to you shortly."
           />
 
-          <motion.form
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <label
-                  htmlFor="firstName"
-                  className="block text-sm font-medium text-text-primary mb-2"
-                >
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-bg-primary border border-border-subtle text-text-primary placeholder:text-text-secondary/50 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors"
-                  placeholder="Your first name"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="lastName"
-                  className="block text-sm font-medium text-text-primary mb-2"
-                >
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  required
-                  className="w-full px-4 py-3 rounded-xl bg-bg-primary border border-border-subtle text-text-primary placeholder:text-text-secondary/50 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors"
-                  placeholder="Your last name"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-text-primary mb-2"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                className="w-full px-4 py-3 rounded-xl bg-bg-primary border border-border-subtle text-text-primary placeholder:text-text-secondary/50 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors"
-                placeholder="you@company.com"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="interest"
-                className="block text-sm font-medium text-text-primary mb-2"
-              >
-                I&apos;m Interested In
-              </label>
-              <select
-                id="interest"
-                name="interest"
-                className="w-full px-4 py-3 rounded-xl bg-bg-primary border border-border-subtle text-text-primary focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors"
-              >
-                <option value="">Select a topic</option>
-                <option value="platform">Learning about the Platform</option>
-                <option value="invest">Investment Opportunities</option>
-                <option value="partner">Partnership Opportunities</option>
-                <option value="media">Media Inquiry</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-text-primary mb-2"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={5}
-                required
-                className="w-full px-4 py-3 rounded-xl bg-bg-primary border border-border-subtle text-text-primary placeholder:text-text-secondary/50 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors resize-none"
-                placeholder="Tell us how we can help..."
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full sm:w-auto px-8 py-4 bg-accent text-bg-primary font-semibold rounded-xl hover:bg-accent-hover transition-colors"
+          {status === "success" ? (
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="rounded-2xl border border-green-500/30 bg-green-500/10 p-8 text-center"
             >
-              Send Message
-            </button>
-          </motion.form>
+              <CheckCircle2 className="w-12 h-12 text-green-400 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold text-text-primary mb-2">
+                Message Sent Successfully
+              </h3>
+              <p className="text-text-secondary mb-6">
+                Thank you for reaching out. A member of our team will get back to you within 24 hours.
+              </p>
+              <button
+                onClick={() => setStatus("idle")}
+                className="px-6 py-3 bg-accent text-bg-primary font-semibold rounded-xl hover:bg-accent-hover transition-colors"
+              >
+                Send Another Message
+              </button>
+            </motion.div>
+          ) : (
+            <motion.form
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+              onSubmit={handleSubmit}
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label
+                    htmlFor="firstName"
+                    className="block text-sm font-medium text-text-primary mb-2"
+                  >
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    required
+                    disabled={status === "submitting"}
+                    className="w-full px-4 py-3 rounded-xl bg-bg-primary border border-border-subtle text-text-primary placeholder:text-text-secondary/50 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors disabled:opacity-50"
+                    placeholder="Your first name"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="lastName"
+                    className="block text-sm font-medium text-text-primary mb-2"
+                  >
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    required
+                    disabled={status === "submitting"}
+                    className="w-full px-4 py-3 rounded-xl bg-bg-primary border border-border-subtle text-text-primary placeholder:text-text-secondary/50 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors disabled:opacity-50"
+                    placeholder="Your last name"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-text-primary mb-2"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  disabled={status === "submitting"}
+                  className="w-full px-4 py-3 rounded-xl bg-bg-primary border border-border-subtle text-text-primary placeholder:text-text-secondary/50 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors disabled:opacity-50"
+                  placeholder="you@company.com"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="interest"
+                  className="block text-sm font-medium text-text-primary mb-2"
+                >
+                  I&apos;m Interested In
+                </label>
+                <select
+                  id="interest"
+                  name="interest"
+                  disabled={status === "submitting"}
+                  className="w-full px-4 py-3 rounded-xl bg-bg-primary border border-border-subtle text-text-primary focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors disabled:opacity-50"
+                >
+                  <option value="">Select a topic</option>
+                  <option value="platform">Learning about the Platform</option>
+                  <option value="invest">Investment Opportunities</option>
+                  <option value="partner">Partnership Opportunities</option>
+                  <option value="media">Media Inquiry</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-text-primary mb-2"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  required
+                  disabled={status === "submitting"}
+                  className="w-full px-4 py-3 rounded-xl bg-bg-primary border border-border-subtle text-text-primary placeholder:text-text-secondary/50 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors resize-none disabled:opacity-50"
+                  placeholder="Tell us how we can help..."
+                />
+              </div>
+
+              {status === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-3 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3"
+                >
+                  <AlertCircle className="w-5 h-5 text-red-400 shrink-0" />
+                  <p className="text-sm text-red-300">
+                    {errorMessage || "Something went wrong. Please try again."}
+                  </p>
+                </motion.div>
+              )}
+
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className="w-full sm:w-auto px-8 py-4 bg-accent text-bg-primary font-semibold rounded-xl hover:bg-accent-hover transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
+                  {status === "submitting" ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Send Message"
+                  )}
+                </button>
+              </div>
+
+              <p className="text-xs text-text-secondary">
+                By submitting this form, you agree to our{" "}
+                <Link href="/privacy" className="text-accent hover:text-accent-hover underline">
+                  Privacy Policy
+                </Link>
+                . We will never share your information.
+              </p>
+            </motion.form>
+          )}
         </div>
       </section>
     </>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Community Guidelines",
-  description: "Community Guidelines for RAIIZ Innovations & Ecohome — rules for participating in our platform community.",
+  description: "Community Guidelines for the RAIIZ Innovations and Ecohome community. Rules for respectful participation on our sustainable building platform.",
 };
 
 export default function GuidelinesPage() {

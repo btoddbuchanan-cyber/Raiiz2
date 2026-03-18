@@ -17,12 +17,13 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://raiiz2.vercel.app"),
   title: {
     default: "RAIIZ Innovations | The Agentic Interface for Construction",
     template: "%s | RAIIZ Innovations",
   },
   description:
-    "RAIIZ is the unifying AI platform for the $16.5T construction industry — aligning architects, engineers, government incentives, and production-line logic into high-velocity workflows.",
+    "RAIIZ is the AI platform unifying the $16.5T construction industry. One platform aligning every stakeholder from design to delivery.",
   keywords: [
     "construction technology",
     "AI platform",
@@ -32,6 +33,9 @@ export const metadata: Metadata = {
     "agentic AI",
   ],
   authors: [{ name: "RAIIZ Innovations Inc." }],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_CA",
@@ -39,12 +43,21 @@ export const metadata: Metadata = {
     title: "RAIIZ Innovations | The Agentic Interface for Construction",
     description:
       "One Platform. Total Market Alignment. The Catalyst for Performance.",
+    images: [
+      {
+        url: "/images/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "RAIIZ Innovations — The Agentic Interface for Construction",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "RAIIZ Innovations",
     description:
       "The Agentic Interface for the $16.5T Construction Industry",
+    images: ["/images/og-default.png"],
   },
   robots: { index: true, follow: true },
 };
@@ -72,6 +85,7 @@ export default function RootLayout({
     telephone: "+1-236-900-2006",
     sameAs: [
       "https://www.linkedin.com/company/raiiz-innovations",
+      "https://twitter.com/raiizinnovation",
     ],
   };
 

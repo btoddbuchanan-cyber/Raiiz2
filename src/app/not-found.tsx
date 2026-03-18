@@ -1,5 +1,13 @@
 import Link from "next/link";
 
+const suggestedLinks = [
+  { href: "/about", label: "About" },
+  { href: "/platform", label: "Platform" },
+  { href: "/blog", label: "Blog" },
+  { href: "/investors", label: "Investors" },
+  { href: "/contact", label: "Contact" },
+];
+
 export default function NotFound() {
   return (
     <section className="min-h-[80vh] flex items-center justify-center px-6">
@@ -17,6 +25,23 @@ export default function NotFound() {
         >
           Back to Home
         </Link>
+
+        <div className="mt-12 pt-8 border-t border-border-subtle">
+          <p className="text-sm text-text-secondary mb-4">
+            You might be looking for:
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {suggestedLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="px-4 py-2 text-sm font-medium text-text-secondary hover:text-accent border border-border-subtle rounded-lg hover:border-accent/30 transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
