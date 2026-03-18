@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, BadgeCheck, TrendingUp, Shield, DollarSign } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -63,6 +64,26 @@ export function InvestorsContent() {
               (EBC). BC investors can earn up to 30% in provincial tax credits
               on their investment.
             </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Investor hero image */}
+      <section className="relative py-16 lg:py-20">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative rounded-2xl overflow-hidden border border-border-subtle"
+          >
+            <Image
+              src="/images/heroes/investors.jpg"
+              alt="Why invest in RAIIZ Innovations — the future of construction technology"
+              width={1200}
+              height={675}
+              className="w-full h-auto"
+            />
           </motion.div>
         </div>
       </section>

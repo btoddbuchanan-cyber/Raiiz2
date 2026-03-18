@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Cpu, ShieldCheck, TrendingUp, Database, Zap, Building2 } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -130,6 +131,28 @@ export default function Home() {
             />
           </div>
         </motion.div>
+      </section>
+
+      {/* ====== R-AI-IZ GRAPHIC ====== */}
+      <section className="relative py-16 lg:py-20 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="relative rounded-2xl overflow-hidden border border-border-subtle"
+          >
+            <Image
+              src="/images/heroes/hero-trust.jpg"
+              alt="RAIIZ — R for Rise, AI for Agentic Intelligence, IZ for Intelligent Zero-Trust"
+              width={1200}
+              height={600}
+              className="w-full h-auto"
+              priority
+            />
+          </motion.div>
+        </div>
       </section>
 
       {/* ====== WHAT IS RAIIZ ====== */}
@@ -273,6 +296,22 @@ export default function Home() {
             title="Built on a Foundation of Data"
             description="Proprietary knowledge fuels AI optimization — 13 years of trilingual IP, 200K+ opted-in members, and a construction-science knowledge base of 170K+ indexed pages."
           />
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="relative rounded-2xl overflow-hidden border border-border-subtle mb-12 max-w-4xl mx-auto"
+          >
+            <Image
+              src="/images/heroes/sovereign-intelligence.jpg"
+              alt="RAIIZ Sovereign Intelligence — proprietary data moat powering agentic AI"
+              width={1200}
+              height={675}
+              className="w-full h-auto"
+            />
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <AnimatedCard index={0} className="border-gradient">

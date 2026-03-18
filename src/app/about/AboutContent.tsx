@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Target, Lightbulb, Globe, Leaf } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -104,12 +105,14 @@ export function AboutContent() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="relative"
             >
-              <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-bg-tertiary to-bg-secondary border border-border-subtle overflow-hidden grid-pattern relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-7xl font-bold text-accent/20 font-[family-name:var(--font-dm-sans)]">
-                    R<span className="text-accent/40">AI</span>IZ
-                  </span>
-                </div>
+              <div className="rounded-2xl border border-border-subtle overflow-hidden">
+                <Image
+                  src="/images/heroes/data-moat.jpg"
+                  alt="RAIIZ proprietary data moat — the foundation of our AI platform"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto"
+                />
               </div>
             </motion.div>
           </div>

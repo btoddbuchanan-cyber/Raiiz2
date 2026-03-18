@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -116,6 +117,26 @@ export function PlatformContent() {
         </div>
       </section>
 
+      {/* Platform visual */}
+      <section className="relative py-16 lg:py-20">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative rounded-2xl overflow-hidden border border-border-subtle"
+          >
+            <Image
+              src="/images/heroes/platform-ai.jpg"
+              alt="RAIIZ platform — sovereign intelligence powering construction AI"
+              width={1200}
+              height={675}
+              className="w-full h-auto"
+            />
+          </motion.div>
+        </div>
+      </section>
+
       {/* Platform layers */}
       <section className="py-24 lg:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -140,6 +161,26 @@ export function PlatformContent() {
               </AnimatedCard>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Connections visual */}
+      <section className="relative py-16 lg:py-20 bg-bg-secondary/20">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative rounded-2xl overflow-hidden border border-border-subtle"
+          >
+            <Image
+              src="/images/heroes/platform-connections.jpg"
+              alt="RAIIZ platform connecting construction professionals, consumers, and government"
+              width={1200}
+              height={675}
+              className="w-full h-auto"
+            />
+          </motion.div>
         </div>
       </section>
 
