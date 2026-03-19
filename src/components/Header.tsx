@@ -53,16 +53,21 @@ export function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="relative z-50 flex items-center gap-2 group"
+            className="relative z-50 flex flex-col group"
             aria-label="RAIIZ Innovations — Home"
           >
-            <span className="text-2xl font-bold tracking-tight font-[family-name:var(--font-dm-sans)]">
-              R
-              <span className="text-accent">AI</span>
-              IZ
-            </span>
-            <span className="hidden sm:block text-xs text-text-secondary font-light tracking-widest uppercase">
-              Innovations
+            <div className="flex items-center gap-2">
+              <span className="text-2xl font-bold tracking-tight font-[family-name:var(--font-dm-sans)]">
+                R
+                <span className="text-accent">AI</span>
+                IZ
+              </span>
+              <span className="hidden sm:block text-xs text-text-secondary font-light tracking-widest uppercase">
+                Innovations
+              </span>
+            </div>
+            <span className="text-[10px] sm:text-xs text-text-secondary/70 font-light tracking-[0.2em] uppercase mt-0.5">
+              Reimagine. Redesign. Revolutionize.
             </span>
           </Link>
 
